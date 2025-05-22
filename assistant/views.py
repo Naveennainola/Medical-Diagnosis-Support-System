@@ -46,7 +46,7 @@ except Exception as e:
     symptoms_list = []
 
 # Load CSV files for descriptions & precautions
-description_path = os.path.join(os.path.dirname(__file__), "dataset", "symptom_Description.csv")
+description_path = os.path.join(os.path.dirname(__file__), "dataset", "disease_Description.csv")
 precaution_path = os.path.join(os.path.dirname(__file__), "dataset", "symptom_precaution.csv")
 medication_path = os.path.join(os.path.dirname(__file__), 'dataset', "disease_medications_final.csv")
 
