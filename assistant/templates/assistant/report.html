@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef6f9;
+            padding: 20px;
+        }
+        .report-container {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #0077cc;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <h2>Diagnosis Report</h2>
+
+        <div class="section">
+            <p><span class="label">Predicted Disease:</span> {{ predicted_disease }}</p>
+            <p><span class="label">Symptoms:</span> {{ symptoms }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Vitals (Optional)</h3>
+            <ul>
+                {% for key, value in vitals.items %}
+                    {% if value %}
+                        <li><strong>{{ key }}:</strong> {{ value }}</li>
+                    {% else %}
+                        <li><strong>{{ key }}</strong> -- </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <a href="{% url 'index' %}" style="padding: 10px 20px; background-color: #0077cc; color: white; border-radius: 5px; text-decoration: none;">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

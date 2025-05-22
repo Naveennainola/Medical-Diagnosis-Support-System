@@ -1,0 +1,7 @@
+User_Symptoms,Predicted_Disease,Correct_Disease
+"dizziness,itchy skin,head pain,body weakness",Paralysis (brain hemorrhage),Allergy
+"irritability,head pain,stomach pain,acidity,nausea",Paralysis (brain hemorrhage),Migraine
+"nausea,acidity,coughing,head pain",GERD,Migraine
+"head pain, stomach pain","{'disease': 'Paralysis (brain hemorrhage)', 'confidence': '19.00%'}",brain hemorrhage
+"head pain, stomach pain","{'disease': 'Paralysis (brain hemorrhage)', 'confidence': '19.00%'}",Gastroenteritis
+"acidity, irritability, nausea","{'disease': 'GERD', 'confidence': '21.00%'}",Drug Reaction

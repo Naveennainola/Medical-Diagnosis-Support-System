@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>Medical Diagnosis Support System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #a8c0ff, #3f2b96);
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            color: black;
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .auth-section {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .auth-section a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .auth-section a:hover {
+            text-decoration: underline;
+        }
+        .tag-input-container {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid #ccc;
+            padding: 5px;
+            min-height: 40px;
+            background: #f8f8f8;
+            cursor: text;
+            align-items: center;
+            position: relative;
+            margin-top: 15px;
+        }
+        .tag {
+            background: #3f2b96;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+        .tag .remove-tag {
+            margin-left: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #symptom-search {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 5px;
+            min-width: 120px;
+            background: transparent;
+        }
+        .suggestions {
+            max-height: 150px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            background: white;
+            display: none;
+            position: absolute;
+            width: 100%;
+            text-align: left;
+            z-index: 10;
+            top: 100%;
+            left: 0;
+        }
+        .suggestions div {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .suggestions div:hover {
+            background: #dcdcdc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 5px;
+            border: none;
+            background: #3f2b96;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+         #suggestion-box {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            position: absolute;
+            background-color: white;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .suggestion-item.active {
+            background-color: #cfe8ff;
+            color: #000;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <h1>Medical Diagnosis Support System</h1>
+
+    <div class="auth-section">
+        <p>Welcome, <strong>{{ user.username }}</strong>! <a href="{% url 'logout' %}">Logout</a></p>
+    </div>
+
+    <div class="container">
+        <h2>Enter Your Symptoms</h2>
+
+        <label for="symptom-search" style="display: block; margin-bottom: 15px;">Type Symptoms:</label>
+        <div class="tag-input-container" onclick="document.getElementById('symptom-search').focus();">
+            <div id="selected-tags"></div>
+            <input type="text" id="symptom-search" placeholder="Start typing..." oninput="showSuggestions(event)">
+            <div class="suggestions" id="suggestion-box"></div>
+        </div>
+
+        <form method="POST" action="{% url 'analyze_symptoms' %}">
+            {% csrf_token %}
+            <input type="hidden" name="symptoms" id="selected-symptoms">
+            <button type="submit">Analyze Symptoms</button>
+        </form>
+    </div>
+
+    <div style="margin-top: 250px; background-color: #fff3cd; border-left: 6px solid #ffecb5; padding: 20px; border-radius: 8px; font-size: 14px; color: #856404;">
+    <strong>Disclaimer:</strong> This healthcare assistant project is designed for educational and informational purposes only. The predictions and suggestions provided are based on a machine learning model trained on a limited dataset. If your symptoms are not listed or if you feel unwell, we strongly recommend consulting a qualified medical professional immediately. This system is not a replacement for professional diagnosis or treatment.
+</div>
+
+
+
+
+    <script>
+    let symptomsList = [{% for symptom in symptoms %}"{{ symptom }}",{% endfor %}];
+    let selectedSymptoms = [];
+    let currentFocus = -1;
+
+    function showSuggestions(event) {
+        let input = event.target.value.toLowerCase();
+        let suggestionBox = document.getElementById("suggestion-box");
+        suggestionBox.innerHTML = "";
+        currentFocus = -1;
+
+        if (!input) {
+            suggestionBox.style.display = "none";
+            return;
+        }
+
+        let matches = symptomsList.filter(s => s.toLowerCase().includes(input) && !selectedSymptoms.includes(s));
+        matches.forEach((m, index) => {
+            let div = document.createElement("div");
+            div.textContent = m;
+            div.classList.add("suggestion-item");
+            div.addEventListener("click", () => addSymptom(m));
+            suggestionBox.appendChild(div);
+        });
+
+        suggestionBox.style.display = matches.length ? "block" : "none";
+    }
+
+    function addSymptom(symptom) {
+        if (!selectedSymptoms.includes(symptom)) {
+            selectedSymptoms.push(symptom);
+            updateTags();
+        }
+        document.getElementById("symptom-search").value = "";
+        document.getElementById("suggestion-box").style.display = "none";
+    }
+
+    function updateTags() {
+        let container = document.getElementById("selected-tags");
+        container.innerHTML = "";
+        selectedSymptoms.forEach(symptom => {
+            let tag = document.createElement("div");
+            tag.className = "tag";
+            tag.innerHTML = `${symptom} <span class="remove-tag" onclick="removeSymptom('${symptom}')">x</span>`;
+            container.appendChild(tag);
+        });
+        document.getElementById("selected-symptoms").value = selectedSymptoms.join(",");
+    }
+
+    function removeSymptom(symptom) {
+        selectedSymptoms = selectedSymptoms.filter(s => s !== symptom);
+        updateTags();
+    }
+
+    // Arrow key navigation and Enter support
+    document.getElementById("symptom-search").addEventListener("keydown", function (e) {
+        let suggestionBox = document.getElementById("suggestion-box");
+        let items = suggestionBox.getElementsByClassName("suggestion-item");
+
+        if (e.key === "ArrowDown") {
+            currentFocus++;
+            highlightItem(items);
+        } else if (e.key === "ArrowUp") {
+            console.log(currentFocus);
+            highlightItem(items);
+        } else if (e.key === "Enter") {
+            e.preventDefault();
+            if (currentFocus > -1 && items[currentFocus]) {
+                items[currentFocus].click();
+                currentFocus = -1;
+            }
+        }
+    });
+
+    function highlightItem(items) {
+        if (!items || items.length === 0) return;
+        removeActive(items);
+        if (currentFocus >= items.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = items.length - 1;
+        items[currentFocus].classList.add("active");
+
+        // Scroll into view if necessary
+        items[currentFocus].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+    }
+
+
+    function removeActive(items) {
+        for (let i = 0; i < items.length; i++) {
+            items[i].classList.remove("active");
+        }
+    }
+</script>
+
+</body>
+</html>

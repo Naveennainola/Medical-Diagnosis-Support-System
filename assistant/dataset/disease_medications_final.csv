@@ -1,0 +1,42 @@
+Disease,Medications,Time-Based Guidance and Preventive Measures
+Drug Reaction,Cetirizine;Prednisone;Epinephrine;Diphenhydramine,If rash or swelling persists >48 hours or breathing difficulty occurs consult Allergist/Immunologist;Prevent by avoiding allergens and reviewing medication history
+Malaria,Artemether-lumefantrine;Chloroquine;Atovaquone-proguanil;Doxycycline,If fever >38°C persists >72 hours consult Infectious Disease Specialist;Prevent with mosquito nets and repellents
+Allergy,Loratadine;Fluticasone;Epinephrine;Montelukast,If sneezing or itching persists >7 days consult Allergist/Immunologist;Prevent by avoiding triggers and using air purifiers
+Hypothyroidism,Levothyroxine;Liothyronine;Desiccated thyroid;Levothyroxine-liothyronine,If fatigue persists >6 weeks consult Endocrinologist;Prevent complications with thyroid tests and iodine-rich diet
+Psoriasis,Betamethasone;Calcipotriene;Methotrexate;Adalimumab,If plaques worsen >4 weeks consult Dermatologist;Prevent flares with moisturizers and stress management
+GERD,Omeprazole;Ranitidine;Sucralfate;Alginates,If heartburn persists >2 weeks consult Gastroenterologist;Prevent with small meals and avoiding trigger foods
+Chronic cholestasis,Ursodeoxycholic acid;Cholestyramine;Rifampicin;Naltrexone,If jaundice persists >4 weeks consult Hepatologist;Prevent with low-fat diet and avoiding hepatotoxic drugs
+Hepatitis A,Ondansetron;Acetaminophen;IV fluids;Silymarin,If jaundice persists >4 weeks consult Hepatologist;Prevent with hepatitis A vaccine and hygiene
+Osteoarthritis,Ibuprofen;Acetaminophen;Duloxetine;Hyaluronic acid injections,If pain limits mobility >6 weeks consult Orthopedist;Prevent with weight loss and low-impact exercise
+(vertigo) Paroymsal Positional Vertigo,Meclizine;Ondansetron;Betahistine;Dimenhydrinate,If vertigo recurs >2 weeks consult Otolaryngologist;Prevent with head position awareness
+Hypoglycemia,Glucose tablets;Glucagon;Dextrose IV;Diazoxide,If episodes recur >1 week consult Endocrinologist;Prevent with regular meals
+Acne,Tretinoin;Benzoyl peroxide;Doxycycline;Clindamycin,If scarring persists >8 weeks consult Dermatologist;Prevent with gentle skincare
+Diabetes,Metformin;Insulin glargine;Sitagliptin;Empagliflozin,If HbA1c >7% after 3 months consult Endocrinologist;Prevent with diet and exercise
+Impetigo,Mupirocin;Cephalexin;Erythromycin;Fusidic acid,If sores spread >7 days consult Dermatologist;Prevent with hygiene
+Hypertension,Hydrochlorothiazide;Lisinopril;Amlodipine;Losartan,If BP >140/90 after 4 weeks consult Cardiologist;Prevent with low-sodium diet
+Peptic ulcer disease,Omeprazole;Amoxicillin;Clarithromycin;Metronidazole,If pain persists >2 weeks consult Gastroenterologist;Prevent with H. pylori eradication
+Dimorphic hemorrhoids(piles),Hydrocortisone;Lidocaine;Psyllium;Diosmin,If bleeding persists >1 week consult Colorectal Surgeon;Prevent with high-fiber diet
+Common Cold,Pseudoephedrine;Diphenhydramine;Acetaminophen;Guaifenesin,If fever persists >10 days consult Primary Care Physician;Prevent with handwashing
+Chicken pox,Acyclovir;Calamine lotion;Acetaminophen;Diphenhydramine,If fever >38.5°C persists >5 days consult Infectious Disease Specialist;Prevent with varicella vaccine
+Cervical spondylosis,Ibuprofen;Cyclobenzaprine;Gabapentin;Tramadol,If numbness persists >4 weeks consult Neurologist;Prevent with posture correction
+Hyperthyroidism,Methimazole;Propranolol;Carbimazole;Potassium iodide,If palpitations persist >6 weeks consult Endocrinologist;Prevent with thyroid monitoring
+Urinary tract infection,Nitrofurantoin;Trimethoprim-sulfamethoxazole;Fosfomycin;Ciprofloxacin,If burning persists >3 days consult Urologist;Prevent with hydration and cranberry
+Varicose veins,Ibuprofen;Diosmin;Pentoxifylline;Compression stockings,If swelling persists >4 weeks consult Vascular Surgeon;Prevent with leg elevation
+AIDS,Tenofovir;Emtricitabine;Dolutegravir;Efavirenz,If CD4 drops >3 months consult Infectious Disease Specialist;Prevent with safe sex practices
+Paralysis (brain hemorrhage),Labetalol;Levetiracetam;Mannitol;Nimodipine,Immediate consultation with Neurosurgeon;Prevent with BP control 
+Typhoid,Ceftriaxone;Azithromycin;Ciprofloxacin;Chloramphenicol,If fever >38°C persists >5 days consult Infectious Disease Specialist;Prevent with typhoid vaccine
+Hepatitis B,Tenofovir;Entecavir;Pegylated interferon-alpha;Lamivudine,If liver enzymes elevate >6 months consult Hepatologist;Prevent with hepatitis B vaccine
+Fungal infection,Fluconazole;Terbinafine;Clotrimazole;Itraconazole,If infection spreads >2 weeks consult Infectious Disease Specialist;Prevent with dry skin
+Hepatitis C,Sofosbuvir;Ledipasvir;Velpatasvir;Glecaprevir-pibrentasvir,If treatment fails >12 weeks consult Hepatologist;Prevent with safe needle practices
+Migraine,Sumatriptan;Ibuprofen;Metoclopramide;Rizatriptan,If migraines >2/week for 4 weeks consult Neurologist;Prevent with trigger avoidance
+Bronchial Asthma,Budesonide;Albuterol;Montelukast;Salmeterol,If albuterol needed >2/week consult Pulmonologist;Prevent with allergen avoidance
+Alcoholic hepatitis,Prednisolone;Pentoxifylline;Thiamine;Folate,If jaundice persists >4 weeks consult Hepatologist;Prevent with alcohol cessation
+Jaundice,Ursodeoxycholic acid;Entecavir;IV fluids;Phenobarbital,If jaundice persists >2 weeks consult Hepatologist;Prevent with hepatitis vaccinations
+Hepatitis E,Ondansetron;Acetaminophen;Ribavirin;IV fluids,If jaundice persists >4 weeks consult Hepatologist;Prevent with safe water
+Dengue,Acetaminophen;IV fluids;Oral rehydration salts;Tranexamic acid,If fever >5 days or bleeding occurs consult Infectious Disease Specialist;Prevent with mosquito control
+Hepatitis D,Pegylated interferon-alpha;Tenofovir;Entecavir;Supportive care,If liver worsens >6 months consult Hepatologist;Prevent with hepatitis B vaccine
+Heart attack,Aspirin;Nitroglycerin;Metoprolol;Clopidogrel,Immediate consultation with Cardiologist;Prevent with statins and exercise 
+Pneumonia,Amoxicillin;Azithromycin;Oseltamivir;Doxycycline,If distress persists >5 days consult Pulmonologist;Prevent with pneumococcal vaccine
+Arthritis,Ibuprofen;Methotrexate;Adalimumab;Hydroxychloroquine,If swelling persists >6 weeks consult Rheumatologist;Prevent with weight control
+Gastroenteritis,Oral rehydration salts;Ondansetron;Ciprofloxacin;Loperamide,If diarrhea persists >3 days consult Gastroenterologist;Prevent with safe food practices
+Tuberculosis,Isoniazid;Rifampin;Ethambutol;Pyrazinamide,If cough persists >2 months consult Infectious Disease Specialist;Prevent with BCG vaccine

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ disease_name }} - Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h3 {
+            margin-top: 25px;
+            color: #333;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .back {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .back a {
+            text-decoration: none;
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+        .back a:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ disease_name }} - Details</h1>
+
+        <h3>Description</h3>
+        <p>{{ description }}</p>
+
+        <h3>Precautions</h3>
+        <ul>
+            {% for item in precautions %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Medications</h3>
+        <ul>
+            {% for med in medications %}
+                <li>{{ med }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Time-Based Guidance & Preventive Measures</h3>
+        <ul>
+            {% for tip in guidance %}
+                <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+
+        <div class="back">
+            <a href="{% url 'home' %}">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
